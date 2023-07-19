@@ -1,0 +1,31 @@
+.prduct-container{
+    margin-top: 50px;
+}
+
+.product-des{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    height: 320px;
+    width: 400px
+}
+.product-des img{
+    height: 200px;
+    width: 200px;
+
+    
+}
+.card-body{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+span{
+    color: black;
+    font-weight: folder;
+    margin-right:2px ;
+}

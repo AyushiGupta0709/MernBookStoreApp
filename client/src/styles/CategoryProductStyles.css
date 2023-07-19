@@ -1,0 +1,130 @@
+.category {
+  /* flex-wrap: wrap; */
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 140px !important;
+}
+.category .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 18rem;
+}
+.category .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.category .card-price {
+  color: green;
+  font-weight: bold;
+}
+.category button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.category .card img:hover {
+  transform: scale(0.9);
+}
+
+.category .card-img-top {
+  height: 300px !important;
+}
+
+
+.similar-products .card {
+  background-color: white;
+  width: 18rem;
+}
+.similar-products .card:hover{
+  transition: box-shadow ease-in 0.7s;
+  /* border: 1px solid #eee; */
+  box-shadow: 5px 5px 5px  grey;
+}
+
+.similar-products .card-name-price {
+  display: flex;
+  flex-direction: column;
+ align-items: flex-start;
+ text-align: center;
+ justify-content: center;
+}
+
+.similar-products .card-price {
+  color:rgb(255, 127, 21);
+  font-size: 16px;
+  font-weight: bold;
+}
+.similar-products button {
+  border-radius: 25px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+}
+.similar-products button:hover{
+  font-weight: bolder;
+  color: white;
+  background-color:rgb(255, 127, 21) ;
+}
+
+.similar-products .card-text {
+  color: rgb(90, 89, 89);
+}
+
+
+.similar-products .card-img-top {
+  height: 300px !important;
+}
+.main-container{
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 370px;
+  /* margin:50px */
+}
+.main-card img{
+  width: 125px;
+  height: 125px;
+}
+.card-body{
+  width: 100%;
+  background-color: rgb(215, 213, 213);
+}
+.add-cart-button{
+  background-color: white;
+  border: 1px solid grey;
+  font-weight: bolder;
+}
+.add-cart-button:hover{
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(255, 127, 21);
+}
+.heading{
+  font-size: 18px;
+  font-weight: 200;
+}
+p{
+  padding-left: 0px;
+}

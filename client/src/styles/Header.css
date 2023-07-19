@@ -1,0 +1,40 @@
+.links{
+    color: black;
+    font-weight: bolder;
+    margin-bottom: 5px;
+
+}
+.reg-button{
+    border-radius: 25px;
+    margin-right: 5px;
+    padding: 0px 20px;
+    font-weight: bolder;
+    border: none;
+    background-color: rgb(255, 127, 21);
+
+}
+.reg-button a{
+    color: white;
+    font-weight: bolder;
+}
+.reg-button a:hover{
+    color: black;
+    
+}
+.log-button{
+    border-radius: 25px;
+    margin-left: 5px;
+    padding: 0px 25px;
+    color: white;
+    border: none;
+    font-weight: bolder;
+    background-color: rgb(255, 127, 21);
+}
+.log-button a{
+    color: white;
+    font-weight: bolder;
+}
+.log-button a:hover{
+    color: black;
+    
+}

@@ -1,0 +1,33 @@
+.update-product-container{
+    margin-top:105px;
+}
+.update-product-main-container{
+    /* border: 2px solid black; */
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.update-form-container{
+    /* border: 2px solid red; */
+    width: 60%;
+}
+.update-button{
+    color:black;
+    background-color: grey;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.delete-button{
+    color: black;
+    background-color: grey;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: bolder;
+
+}

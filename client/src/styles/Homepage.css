@@ -1,0 +1,247 @@
+
+.home-page h1 {
+  color: black;
+  font-family: "Playfair Display", serif;
+}
+
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-page .card {
+  width: 300px;
+   height: 450px;
+   box-shadow: 5px 5px 5px rgb(232, 231, 231);
+    border:1px solid rgb(232, 232, 232);
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+   
+
+}
+.home-page .card:hover{
+  transition: box-shadow ease-in 0.7s;
+  /* border: 1px solid #eee; */
+  box-shadow: 5px 5px 5px  grey;
+}
+.home-page .card-name-price {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+}
+.home-page .card-body{
+  display: flex;
+  justify-content: center;
+  align-items:start;
+  text-align: center;
+  width: 100%;
+  height: 370px;
+  padding:0px 20px;
+  background-color: rgb(232, 232, 232);
+  flex-direction: column;
+}
+
+.home-page .card-price {
+  color: rgb(255, 127, 21);
+
+}
+.home-page button {
+  border-radius: 25px;
+  width: 100%;
+  border: 1px solid grey;
+  background-color: grey;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 10px;
+  margin: 5px;
+}
+.home-page button:hover{
+  background-color: rgb(255, 127, 21);
+  color: white;
+}
+.home-page .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.home-page .card img:hover {
+  /* transform: scale(0.9); */
+}
+
+.home-page .card-img-top {
+  height: 300px !important;
+}
+/* ==================
+filters
+============== */
+.filters h4 {
+  margin-top: 100px;
+  color: gray !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+
+.ant-checkbox-wrapper:first-of-type {
+  margin-left: 8px;
+}
+
+.ant-checkbox-wrapper {
+  margin: 2px;
+}
+.ant-radio-wrapper {
+  margin-bottom: 5px !important;
+  margin-left: 10px;
+}
+
+.filters button {
+  background-color: black;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  margin-top: 20px;
+  color: white;
+}
+
+.loadmore {
+  color:rgb(255, 127, 21);
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+.home-container{
+  height: 100vh;
+  width: 100vw;
+  /* margin-bottom: 300px; */
+}
+.slider-container img{
+  object-fit: cover;
+}
+.advertise-container{
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+
+}
+.ad-heading p{
+  font-weight: bold;
+  color: grey;
+
+}
+.ad-heading h1{
+  font-weight: bold;
+  color:black;
+}
+
+.published-heading{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 30px;
+  width: 100%;
+  height: 50px;
+  background-color: #eceefe;
+
+}
+.authors-logo{
+  display: flex;
+ 
+}
+.ad-container{
+  display: flex;
+   align-items: center;
+  text-align: center; 
+  height: 300px;
+  width: 300px;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text{
+  margin-top: 180px;
+}
+.authors-logo p, .authors-logo h4{
+  /* margin-top: 50px; */
+  color: white;
+  font-weight: bold;
+  /* border: 2px solid white; */
+
+}
+.first-ad{
+background-color: #D3254E;
+  background-image:url("https://www.gitapress.org/assets/images/category-filter/shrimadbhagwad.png") ;
+
+}
+.second-ad {
+  background-color: #F5CE2E;
+  /* height: 100px;
+  width: 100px; */
+  background-image: url("https://www.gitapress.org/assets/images/category-filter/tulsidas.png");
+
+
+}
+.third-ad{
+  background-color: #7F85BC;
+  background-image: url("https://www.gitapress.org/assets/images/category-filter/puran.png");
+
+}
+.fourth-ad{
+  background-color: #5A3F7A;
+  background-image:url("https://www.gitapress.org/assets/images/category-filter/balupyogi.png") ;
+
+
+}
+.about-us{
+  font-size: 20px;
+  padding: 40px;
+}
+.know-more button{
+  padding: 10px 20px;
+  margin-left: 40px;
+  border-radius: 25px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(249, 56, 56);
+}
+
+.single-image img{
+  height: 140px !important;
+  width: 140px;
+  object-fit: cover;
+  
+
+}
+
+
+.heading{
+ 
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color:black;
+  font-weight: bold;
+  font-family: 'Crimson Text', serif;
+}
+
+h5{
+  font-weight: bolder;
+}
+.card-price{
+  font-family: 'Fasthand', cursive
+}
+.des{
+  color: black;
+  font-weight: bolder;
+}
+.price{
+  font-weight: bolder;
+ 
+}

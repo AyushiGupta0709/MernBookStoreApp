@@ -1,0 +1,94 @@
+.product-details {
+  margin-top: 130px !important;
+  margin-left: 30px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+.product-details img{
+  height: 300px;
+  width: 300px;
+}
+
+.product-details-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.product-details-info h6 {
+  margin-bottom: 20px !important;
+}
+
+.similar-products .card {
+  background-color: white;
+  width: 18rem;
+}
+
+.similar-products .card-name-price {
+  display: flex;
+  flex-direction: column;
+ align-items: flex-start;
+ text-align: center;
+ justify-content: center;
+}
+
+.similar-products .card-price {
+  color:rgb(255, 127, 21);
+  font-size: 16px;
+  font-weight: bold;
+}
+.similar-products button {
+  border-radius: 25px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+}
+.similar-products button:hover{
+  font-weight: bolder;
+  color: white;
+  background-color:rgb(255, 127, 21) ;
+}
+
+.similar-products .card-text {
+  color: rgb(90, 89, 89);
+}
+
+
+.similar-products .card-img-top {
+  height: 300px !important;
+}
+
+.main-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 370px;
+}
+.main-card img{
+  width: 125px;
+  height: 125px;
+}
+.card-body{
+  width: 100%;
+  background-color: rgb(215, 213, 213);
+}
+.add-cart-button{
+  background-color: white;
+  border: 1px solid grey;
+  font-weight: bolder;
+}
+.add-cart-button:hover{
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(255, 127, 21);
+}
+.heading{
+  font-size: 18px;
+  font-weight: 200;
+}

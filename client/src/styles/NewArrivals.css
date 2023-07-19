@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.new-sections{
+
+    /* margin: 0px 0px; */
+    /* margin-top: 250px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+}
+.new-arrivals-container{
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+}
+.new-arrivals-book{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.new-arrival-heading{
+    display: flex;
+    margin: 30px 0px;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color:black;
+    font-weight: bold;
+    font-family: 'Crimson Text', serif;
+  
+}
+.single-new-arrival{
+    width: 300px;
+   height: 350px;
+   box-shadow: 5px 5px 5px rgb(232, 231, 231);
+    border:1px solid rgb(232, 232, 232);
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.single-new-arrival:hover{
+    transition: box-shadow ease-in 0.7s;
+    /* border: 1px solid #eee; */
+    box-shadow: 5px 5px 5px  grey;
+}
+.single-image-container img{
+    height: 200px;
+
+  
+
+}
+.book-desrciption{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    width: 100%;
+    height: inherit;
+    padding:0px 20px;
+    background-color: rgb(232, 232, 232);
+    flex-direction: column;
+}
+.book-desrciption > p{
+    display: inline;
+    font-weight: bold;
+    font-family: 'Fasthand', cursive;
+}
+.book-desrciption span{
+    font-weight: 100;
+}
+h5{
+    font-weight: bolder;
+}
+.price{
+    color: rgb(255, 127, 21);
+}

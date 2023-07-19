@@ -1,0 +1,11 @@
+.search-input{
+    width: 25vw;
+    border-radius: 25px;
+    background-color: rgb(214, 214, 214);
+    border-radius: 25px;
+
+}
+.search-form button{
+    background-color: rgb(255, 127, 21) !important;
+
+}

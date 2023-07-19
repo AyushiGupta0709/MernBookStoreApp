@@ -1,0 +1,17 @@
+.read-more-container {
+    margin: 80px;
+    padding: 60px;
+
+}
+.read-more-container span{
+    /* margin: 40px; */
+    font-size: 16px;
+}
+.read-more-container h4{
+    font-weight: bold;
+    color:grey;
+    font-size: 16px;
+}
+.read-more-container h2{
+    margin-bottom: 40px;
+}

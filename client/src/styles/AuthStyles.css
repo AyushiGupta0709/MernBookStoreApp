@@ -1,0 +1,141 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-main-container{
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  /* border: 2px solid rgb(187, 19, 19); */
+
+}
+.left-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  /* border: 2px solid red; */
+ 
+
+
+
+}
+.left-container img{
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+  
+}
+.right-container{
+  display: flex;
+  /* border: 2px solid black; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+
+}
+form{
+  width: 70%;
+  padding: 10px;
+ 
+
+}
+label{
+  float: left;
+}
+.login-button{
+  background-color: rgb(255, 93, 34);
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px 25px 10px 25px;
+  border: none;
+}
+.login-button:hover{
+  color: black;
+}
+a{
+  color: rgb(255, 93, 34);
+}
+p{
+  margin-bottom: 0px;
+}
+
+
+.register-main-container{
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+
+}
+.left-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  /* border: 2px solid red; */
+ 
+
+
+
+}
+.left-container img{
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+  
+}
+.right-container{
+  display: flex;
+  /* border: 2px solid black; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  /* padding: 20px; */
+
+}
+form{
+  /* border: 2px solid red; */
+  width: 70%;
+  padding: 10px;
+ 
+
+}
+label{
+  float: left;
+}
+.register-button{
+  background-color: rgb(255, 93, 34);
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px 25px 10px 25px;
+  border: none;
+}
+.register-button:hover{
+  color: black;
+}
+a{
+  color: rgb(255, 93, 34);
+}
