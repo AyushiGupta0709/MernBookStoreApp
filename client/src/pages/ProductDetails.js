@@ -52,17 +52,17 @@ const ProductDetails = () => {
         <div className="col-md-6 product-details-info">
           <h1 className="text-center">Product Details</h1>
           <hr />
-          <h6>Name : {product.name}</h6>
-          <h6>Description : {product.description}</h6>
-          <h6>
-            Price :
+          <h6><span className="des">Name : </span>{product.name}</h6>
+          <h6><span className="des">Description : </span>{product.description}</h6>
+          <h6 className="price"><span className="des">Price :</span>
+            
             {product?.price?.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
             })}
           </h6>
-          <h6>Category : {product?.category?.name}</h6>
-          <button class="btn ms-1 add-cart-button rounded-pill">ADD TO CART</button>
+          <h6><span className="des">Category:</span>{product?.category?.name}</h6>
+          <button class="btn ms-1 add-cart-button">ADD TO CART</button>
         </div>
       </div>
       <hr />
@@ -71,37 +71,35 @@ const ProductDetails = () => {
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
         )}
-        <div className="d-flex flex-wrap ">
+        <div className="d-flex flex-wrap similar-container">
           {relatedProducts?.map((p) => (
-            <div className="card m-2 single-image main-card" key={p._id}>
+            <div className="card main-card" key={p._id}>
               <img
                 src={`/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top"
                 alt={p.name}
               />
-              <div className="card-body">
-                <div className="card-name-price">
-                  <h5 className="card-title heading">{p.name}</h5>
+           
+              <div className="similar-product-description">
+                  <h5 className="card-title">{p.name}</h5>
                   <h5 className="card-title card-price">
                     <span className="price">Price:</span>{p.price.toLocaleString("en-US", {
                       style: "currency",
                       currency: "USD",
                     })}
                   </h5>
-                </div>
+                     
                 <p className="card-text ">
                  <span className="des">Description:</span> {p.description.substring(0, 60)}...
                 </p>
-                <div className="card-name-price">
-                  <button
-                    className="btn rounded-pill ms-1"
+                 <button
+                    className="product-button"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
                   </button>
-                </div>
+                </div>             
               </div>
-            </div>
           ))}
         </div>
       </div>

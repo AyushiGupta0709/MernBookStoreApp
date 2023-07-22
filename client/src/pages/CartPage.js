@@ -81,8 +81,8 @@ const CartPage = () => {
     <Layout>
       <div className="cart-page">
         <div className="row">
-          <div className="col-md-12">
-            <h1 className="text-center bg-light p-2 mb-1">
+          <div className="cart-main-container">
+            <h1 className="">
               {!auth?.user
                 ? "Hello Guest"
                 : `Hello  ${auth?.token && auth?.user?.name}`}
@@ -96,37 +96,34 @@ const CartPage = () => {
             </h1>
           </div>
         </div>
-        <div className="container ">
-          <div className="row ">
-            <div className="col-md-7  p-0 m-0">
+        <div className="cart-details-container">
+          <div className="cart-all-details">
+            {/* <div className=""> */}
               {cart?.map((p) => (
-                <div className="row card flex-row" key={p._id}>
-                  <div className="col-md-4">
-                    <img
+                <div className="cart-single-order" key={p._id}>
+                  <div className="cart-order-des">
+                  <img
                       src={`/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                       width="100%"
                       height={"130px"}
                     />
-                  </div>
-                  <div className="col-md-4">
-                    <p>{p.name}</p>
-                    <p>{p.description.substring(0, 30)}</p>
-                    <p>Price : {p.price}</p>
-                  </div>
-                  <div className="col-md-4 cart-remove-btn">
-                    <button
-                      className="btn btn-danger"
+                    <span className="cart-name des">{p.name}</span>
+                    <span className="cart-des des">{p.description.substring(0, 30)}</span>
+                    <span className="cart-price des">$ {p.price}</span>
+                    <i className="fa-solid fa-trash delete-icon"
                       onClick={() => removeCartItem(p._id)}
-                    >
-                      Remove
-                    </button>
+                    >                    
+                      </i>
                   </div>
+                  
+                  
+                  
                 </div>
               ))}
             </div>
-            <div className="col-md-5 cart-summary ">
+            <div className="cart-summary ">
               <h2>Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />
@@ -195,7 +192,6 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-      </div>
     </Layout>
   );
 };

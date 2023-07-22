@@ -55,7 +55,7 @@ label{
   float: left;
 }
 .login-button{
-  background-color: rgb(255, 93, 34);
+  background-color:#dc3545;;
   color: white;
   font-weight: bold;
   border-radius: 25px;
@@ -66,7 +66,7 @@ label{
   color: black;
 }
 a{
-  color: rgb(255, 93, 34);
+  color:#dc3545;;
 }
 p{
   margin-bottom: 0px;
@@ -126,16 +126,16 @@ label{
   float: left;
 }
 .register-button{
-  background-color: rgb(255, 93, 34);
+  background-color:#dc3545; ;
   color: white;
   font-weight: bold;
   border-radius: 25px;
-  padding: 10px 25px 10px 25px;
+  padding:7px 20px;
   border: none;
 }
 .register-button:hover{
   color: black;
 }
 a{
-  color: rgb(255, 93, 34);
+  color:#dc3545;;
 }

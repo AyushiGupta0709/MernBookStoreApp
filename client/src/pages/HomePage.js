@@ -7,13 +7,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import Slider from "./Slider";
-import Articles from "./Articles";
-import Addvertise from "./Addvertise";
 import Describe from "./Describe";
-import NewArrivals from "./NewArrivals";
-import Footer from "../components/Layout/Footer";
 import { AiOutlineReload } from "react-icons/ai";
-
 import "../styles/Homepage.css";
 
 const HomePage = () => {
@@ -116,12 +111,7 @@ const HomePage = () => {
   return (
   <Layout title={"ALl Products - Best offers "}>
   <Slider/>
-  <Articles/>
-  <Addvertise/>
   <Describe/>
-  <NewArrivals/>
-
-      {/* banner image */}
       <div className="container-fluid row mt-3 home-page ">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -146,7 +136,7 @@ const HomePage = () => {
               ))}
             </Radio.Group>
           </div>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column reset-button">
             <button
               className="btn btn-danger"
               onClick={() => window.location.reload()}
@@ -156,8 +146,8 @@ const HomePage = () => {
           </div>
         </div>
         <div className="col-md-9">
-          <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap  ">
+          <h1 className="text-center home-right-container">All Products</h1>
+          <div className="d-flex flex-wrap home-container">
             {products?.map((p) => (
               <div className="card single-image" key={p._id}>
                 <img
@@ -165,28 +155,28 @@ const HomePage = () => {
                   className="card-img-top "
                   alt={p.name}
                 />
-                <div className="card-body ">
-                  <div className="card-name-price ">
-                    <h5 className="card-title heading">{p.name}</h5>
+                <div className="home-product-description">
+          
+                    <h5 className="card-title">{p.name}</h5>
                    <p className="card-title card-price">
                       <span className="price">Price:</span>{p.price.toLocaleString("en-US", {
                         style: "currency",
                         currency: "USD",
                       })}
                     </p>
-                  </div>
-                  <p className="card-text ">
+                 
+                  <p>
                    <span className="des">Description</span> {p.description.substring(0, 60)}...
                   </p>
                   <div className="card-name-price">
                     <button
-                      className="btn p-10 rounded-pill"
+                      className="home-more-details-button home-button"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
-                      More Details
+                      MORE DETAILS
                     </button>
                     <button
-                      className="btn "
+                      className="home-button"
                       onClick={() => {
                         setCart([...cart, p]);
                         localStorage.setItem(

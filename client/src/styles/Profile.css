@@ -1,51 +1,39 @@
 body {
     overflow-x: hidden;
   }
-
-.create-container{
+.profile-container{
     margin-top: 105px;
+
 }
-.create-right-container{
+.profile-right-container{
+    margin-top: 50px;
     width: 70%;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
     flex-direction: column;
-    /* border: 2px solid red; */
-
-
-}
-.form-contain{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 1px solid rgb(216, 216, 216);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    /* border: 2px solid black; */
+    border: 1px solid rgb(223, 223, 223);
 }
 .inputs{
     width: 100%;
     border-radius: 15px;
 }
-.create-product-button{
+.profile-button{
     border-radius: 5px;
     color: white;
     background-color:#dc3545;
     padding: 7px 25px;
    border: none;
 }
-.create-product-button:hover{
+.profile-button:hover{
     background-color:#a90d1d;
 }
 
+
 @media only screen and (max-width:991px){
-    .create-container{
+    .profile-container{
         overflow-x: hidden;
         margin-top: 57px;
     
@@ -60,8 +48,7 @@ body {
     .col-md-3{
        width: 100%;
     }
-    .create-right-container{
+    .profile-right-container{
         width: 100%;
     }
 }
-

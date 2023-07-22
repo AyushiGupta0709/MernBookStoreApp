@@ -6,6 +6,21 @@
 
 }
 .search-form button{
-    background-color: rgb(255, 127, 21) !important;
+    background-color:#dc3545 !important;
 
+}
+@media only screen and (max-width:991px){
+    .search-input{
+        width: 40vw;
+    }
+}
+@media only screen and (max-width:550px){
+    .search-input{
+        width: 55vw;
+    }
+}
+@media only screen and (max-width:260px){
+    .search-input{
+        width: 75vw;
+    }
 }

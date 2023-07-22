@@ -78,12 +78,12 @@ const Header = () => {
               {!auth?.user ? (
                 <>
                   <li className="nav-item links">
-                   <button className="register-button"><NavLink to="/register" className="nav-link">
+                   <button className="reg-button"><NavLink to="/register" className="nav-link">
                       Register
                     </NavLink></button> 
                   </li>
                   <li className="nav-item links">
-                  <button className="login-button"><NavLink to="/login" className="nav-link">
+                  <button className="log-button"><NavLink to="/login" className="nav-link">
                       Login
                     </NavLink></button>  
                   </li>

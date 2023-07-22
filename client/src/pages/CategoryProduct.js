@@ -26,10 +26,10 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3 category similar-products">
+      <div className="container similars">
         <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} result found </h6>
-        <div className="row">
+        <h6 className="text-center products-length">{products?.length} result found </h6>
+        {/* <div className="row"> */}
           {/* <div className="col-md-9 offset-1"> */}
             <div className="d-flex flex-wrap main-container">
               {products?.map((p) => (
@@ -39,34 +39,31 @@ const CategoryProduct = () => {
                     className="card-img-top"
                     alt={p.name}
                   />
-                  <div className="card-body">
-                    <div className="card-name-price">
+                    <div className="home-product-description">
                       <h5 className="card-title">{p.name}</h5>
-                      <h5 className="card-title card-price">
+                      <p className="card-title card-price">
                       <span className="price">Price:</span>{p.price.toLocaleString("en-US", {
                           style: "currency",
                           currency: "USD",
                         })}
-                      </h5>
-                    </div>
-                    <p className="card-text ">
+                      </p>
+                      <p className="card-text">
                     <span className="des">Description:</span>{p.description.substring(0, 60)}...
                     </p>
-                    <div className="card-name-price">
-                      <button
-                        className="btn rounded-pill ms-1"
+                    <button
+                        className="category-button"
                         onClick={() => navigate(`/product/${p.slug}`)}
                       >
-                        More Details
+                        MORE DEATILS
                       </button>
-    
+                    </div>                         
                     </div>
-                  </div>
-                </div>
+
+
               ))}
             </div>
         </div>
-      </div>
+      {/* </div> */}
     </Layout>
   );
 };

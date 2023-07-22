@@ -124,7 +124,7 @@ const CreateCategory = () => {
                             }}  
                             >
                           </i>
-                          <i className="fa-sharp fa-solid fa-trash delete-button"
+                          <i className="fa-solid fa-trash delete-button"
                             onClick={() => {
                               handleDelete(c._id);
                             }}
