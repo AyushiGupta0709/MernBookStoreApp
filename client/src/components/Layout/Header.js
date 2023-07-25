@@ -41,23 +41,18 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            {/* The logo with link to home */}
             <Link to="/" className="navbar-brand">
-              <img src={logo} alt="image" height={80} width={80} /> THE BOOK
+              <img src={logo} alt="logo" height={80} width={80} /> THE BOOK
               SPOT
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              {/* Search input component */}
               <SearchInput />
-
-              {/* Navigation links */}
               <li className="nav-item">
                 <NavLink to="/" className="nav-link links">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item dropdown">
-                {/* Dropdown for Categories */}
                 <Link
                   className="nav-link dropdown-toggle links"
                   to={"/categories"}
@@ -66,13 +61,11 @@ const Header = () => {
                   Categories
                 </Link>
                 <ul className="dropdown-menu">
-                  {/* All Categories link */}
                   <li>
                     <Link className="dropdown-item links" to={"/categories"}>
                       All Categories
                     </Link>
                   </li>
-                  {/* Display each category */}
                   {categories?.map((c) => (
                     <li key={c.slug}>
                       <Link

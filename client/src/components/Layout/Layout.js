@@ -15,17 +15,13 @@ const Layout = ({ children, title, description, keywords, author }) => {
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="author" content={author} />
-        {/* Title of the page */}
-        <title>{title}</title>
+        {/* <title>{title}</title> */}
       </Helmet>
 
       {/* Header component */}
       <Header />
       <main style={{ minHeight: "70vh" }}>
-        {/* Toaster component from react-hot-toast for displaying toast notifications */}
         <Toaster />
-
-        {/* Render the content of the individual page */}
         {children}
       </main>
       <Footer />
@@ -35,10 +31,10 @@ const Layout = ({ children, title, description, keywords, author }) => {
 
 // Default props for the Layout component, in case the parent component doesn't pass these props
 Layout.defaultProps = {
-  title: "Ecommerce app - shop now",
+  title: "THE BOOK SPOT",
   description: "mern stack project",
   keywords: "mern,react,node,mongodb",
-  author: "Techinfoyt",
+  author: "Ayushi Gupta",
 };
 
 export default Layout;
