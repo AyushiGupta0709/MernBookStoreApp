@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
+import { useSearch } from "../context/search";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
@@ -18,6 +19,7 @@ const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
   const [radio, setRadio] = useState([]);
+  const [values, setValues] = useSearch();
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -78,7 +80,7 @@ const HomePage = () => {
     }
   };
 
-  // filter by cat
+  // filter by category
   const handleFilter = (value, id) => {
     let all = [...checked];
     if (value) {
@@ -90,12 +92,18 @@ const HomePage = () => {
   };
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
+    //eslint-disable-next-line
   }, [checked.length, radio.length]);
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
+     //eslint-disable-next-line
   }, [checked, radio]);
 
+  useEffect(()=>{
+    if(values.length)
+    setProducts(values);
+  },[values])
   //get filterd product
   const filterProduct = async () => {
     try {
@@ -109,9 +117,9 @@ const HomePage = () => {
     }
   };
   return (
-  <Layout title={"ALl Products - Best offers "}>
-  <Slider/>
-  <Describe/>
+    <Layout title={"ALl Products - Best offers "}>
+      <Slider />
+      <Describe />
       <div className="container-fluid row mt-3 home-page ">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -156,17 +164,18 @@ const HomePage = () => {
                   alt={p.name}
                 />
                 <div className="home-product-description">
-          
-                    <h5 className="card-title">{p.name}</h5>
-                   <p className="card-title card-price">
-                      <span className="price">Price:</span>{p.price.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}
-                    </p>
-                 
+                  <h5 className="card-title">{p.name.toUpperCase()}</h5>
+                  <p className="card-title card-price">
+                    <span className="price">Price:</span>
+                    {p.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </p>
+
                   <p>
-                   <span className="des">Description</span> {p.description.substring(0, 60)}...
+                    <span className="des">Description</span>{" "}
+                    {p.description.substring(0, 30)}...
                   </p>
                   <div className="card-name-price">
                     <button
@@ -193,26 +202,27 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <div className="m-2 p-3">
-            {products && products.length < total && (
-              <button
-                className="btn loadmore"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage(page + 1);
-                }}
-              >
-                {loading ? (
-                  "Loading ..."
-                ) : (
-                  <>
-                    {" "}
-                    Loadmore <AiOutlineReload />
-                  </>
-                )}
-              </button>
-            )}
-          </div>
+
+            <div className="m-2 p-3">
+              {products && products.length < total && (
+                <button
+                  className="btn loadmore"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setPage(page + 1);
+                  }}
+                >
+                  {loading ? (
+                    "Loading ..."
+                  ) : (
+                    <>
+                      {" "}
+                      Loadmore <AiOutlineReload />
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
         </div>
       </div>
     </Layout>
@@ -220,3 +230,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

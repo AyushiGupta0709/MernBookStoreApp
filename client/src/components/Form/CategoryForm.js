@@ -1,6 +1,5 @@
 import React from "react";
 
-// Functional component CategoryForm
 // It takes three props: handleSubmit, value, and setValue
 const CategoryForm = ({ handleSubmit, value, setValue }) => {
   return (

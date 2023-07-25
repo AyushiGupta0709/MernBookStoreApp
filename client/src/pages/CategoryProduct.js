@@ -29,8 +29,6 @@ const CategoryProduct = () => {
       <div className="container similars">
         <h4 className="text-center">Category - {category?.name}</h4>
         <h6 className="text-center products-length">{products?.length} result found </h6>
-        {/* <div className="row"> */}
-          {/* <div className="col-md-9 offset-1"> */}
             <div className="d-flex flex-wrap main-container">
               {products?.map((p) => (
                 <div className="card m-2 main-card" key={p._id}>
@@ -58,12 +56,9 @@ const CategoryProduct = () => {
                       </button>
                     </div>                         
                     </div>
-
-
               ))}
             </div>
         </div>
-      {/* </div> */}
     </Layout>
   );
 };

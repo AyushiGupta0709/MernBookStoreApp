@@ -6,32 +6,35 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import "../../styles/Products.css";
 const Products = () => {
+  // State variable to store the list of products
   const [products, setProducts] = useState([]);
 
-  //getall products
+  // Function to fetch all products from the server
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get("/api/v1/product/get-product");
       setProducts(data.products);
     } catch (error) {
       console.log(error);
-      toast.error("Someething Went Wrong");
+      toast.error("Something Went Wrong");
     }
   };
 
-  //lifecycle method
+  // Lifecycle method to fetch products when the component mounts
   useEffect(() => {
     getAllProducts();
   }, []);
+
   return (
     <Layout>
       <div className="row dashboard">
         <div className="col-md-3">
           <AdminMenu />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-9">
           <h1 className="text-center right-product-container">All Products List</h1>
           <div className="d-flex flex-wrap product-container">
+            {/* Loop through the products and display each product as a link */}
             {products?.map((p) => (
               <Link
                 key={p._id}

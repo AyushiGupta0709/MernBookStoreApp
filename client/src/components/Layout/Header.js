@@ -13,6 +13,8 @@ const Header = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory();
+
+  // Function to handle user logout
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -22,6 +24,7 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
   };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top ">
@@ -38,17 +41,23 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+            {/* The logo with link to home */}
             <Link to="/" className="navbar-brand">
-             <img src={logo} alt="image" height={80} width={80}/> THE BOOK SPOT 
+              <img src={logo} alt="image" height={80} width={80} /> THE BOOK
+              SPOT
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {/* Search input component */}
               <SearchInput />
+
+              {/* Navigation links */}
               <li className="nav-item">
                 <NavLink to="/" className="nav-link links">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item dropdown">
+                {/* Dropdown for Categories */}
                 <Link
                   className="nav-link dropdown-toggle links"
                   to={"/categories"}
@@ -57,13 +66,15 @@ const Header = () => {
                   Categories
                 </Link>
                 <ul className="dropdown-menu">
+                  {/* All Categories link */}
                   <li>
                     <Link className="dropdown-item links" to={"/categories"}>
                       All Categories
                     </Link>
                   </li>
+                  {/* Display each category */}
                   {categories?.map((c) => (
-                    <li>
+                    <li key={c.slug}>
                       <Link
                         className="dropdown-item links"
                         to={`/category/${c.slug}`}
@@ -75,21 +86,29 @@ const Header = () => {
                 </ul>
               </li>
 
+              {/* Render either Register/Login or User information/Logout */}
               {!auth?.user ? (
                 <>
+                  {/* Register button */}
                   <li className="nav-item links">
-                   <button className="reg-button"><NavLink to="/register" className="nav-link">
-                      Register
-                    </NavLink></button> 
+                    <button className="reg-button">
+                      <NavLink to="/register" className="nav-link">
+                        Register
+                      </NavLink>
+                    </button>
                   </li>
+                  {/* Login button */}
                   <li className="nav-item links">
-                  <button className="log-button"><NavLink to="/login" className="nav-link">
-                      Login
-                    </NavLink></button>  
+                    <button className="log-button">
+                      <NavLink to="/login" className="nav-link">
+                        Login
+                      </NavLink>
+                    </button>
                   </li>
                 </>
               ) : (
                 <>
+                  {/* Dropdown for authenticated user */}
                   <li className="nav-item dropdown">
                     <NavLink
                       className="nav-link dropdown-toggle"
@@ -101,6 +120,7 @@ const Header = () => {
                       {auth?.user?.name}
                     </NavLink>
                     <ul className="dropdown-menu">
+                      {/* Dashboard link */}
                       <li>
                         <NavLink
                           to={`/dashboard/${
@@ -111,6 +131,7 @@ const Header = () => {
                           Dashboard
                         </NavLink>
                       </li>
+                      {/* Logout link */}
                       <li>
                         <NavLink
                           onClick={handleLogout}
@@ -124,6 +145,8 @@ const Header = () => {
                   </li>
                 </>
               )}
+
+              {/* Cart link with badge to show cart item count */}
               <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
                   <Badge count={cart?.length} showZero offset={[10, -5]}>

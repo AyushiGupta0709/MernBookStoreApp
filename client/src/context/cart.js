@@ -25,5 +25,5 @@ const CartProvider = ({ children }) => {
 // Custom hook 'useCart' to consume the cart state from CartContext
 const useCart = () => useContext(CartContext);
 
-// Export the custom hook 'useCart' and the CartProvider component
+
 export { useCart, CartProvider };

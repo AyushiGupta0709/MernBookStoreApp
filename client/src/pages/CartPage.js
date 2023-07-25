@@ -1,3 +1,4 @@
+// Importing required modules and components
 import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import { useCart } from "../context/cart";
@@ -10,14 +11,19 @@ import toast from "react-hot-toast";
 import "../styles/CartStyles.css";
 
 const CartPage = () => {
+  // Using custom hooks for accessing the cart and authentication state
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
+
+  // State variables for managing the Braintree payment gateway
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // React Router hook for navigation
   const navigate = useNavigate();
 
-  //total price
+  // Function to calculate the total price of the items in the cart
   const totalPrice = () => {
     try {
       let total = 0;
@@ -32,7 +38,8 @@ const CartPage = () => {
       console.log(error);
     }
   };
-  //detele item
+
+  // Function to remove an item from the cart
   const removeCartItem = (pid) => {
     try {
       let myCart = [...cart];
@@ -45,7 +52,7 @@ const CartPage = () => {
     }
   };
 
-  //get payment gateway token
+  // Function to fetch the payment gateway token from the server
   const getToken = async () => {
     try {
       const { data } = await axios.get("/api/v1/product/braintree/token");
@@ -54,11 +61,13 @@ const CartPage = () => {
       console.log(error);
     }
   };
+
+  // Fetch the token when the component mounts or when the user logs in/out
   useEffect(() => {
     getToken();
   }, [auth?.token]);
 
-  //handle payments
+  // Function to handle the payment process
   const handlePayment = async () => {
     try {
       setLoading(true);
@@ -77,11 +86,13 @@ const CartPage = () => {
       setLoading(false);
     }
   };
+
   return (
     <Layout>
       <div className="cart-page">
         <div className="row">
           <div className="cart-main-container">
+            {/* Displaying a greeting message based on the user's authentication state */}
             <h1 className="">
               {!auth?.user
                 ? "Hello Guest"
@@ -98,100 +109,101 @@ const CartPage = () => {
         </div>
         <div className="cart-details-container">
           <div className="cart-all-details">
-            {/* <div className=""> */}
-              {cart?.map((p) => (
-                <div className="cart-single-order" key={p._id}>
-                  <div className="cart-order-des">
+            {/* Mapping through the cart items and displaying them */}
+            {cart?.map((p) => (
+              <div className="cart-single-order" key={p._id}>
+                <div className="cart-order-des">
                   <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
-                      className="card-img-top"
-                      alt={p.name}
-                      width="100%"
-                      height={"130px"}
-                    />
-                    <span className="cart-name des">{p.name}</span>
-                    <span className="cart-des des">{p.description.substring(0, 30)}</span>
-                    <span className="cart-price des">$ {p.price}</span>
-                    <i className="fa-solid fa-trash delete-icon"
-                      onClick={() => removeCartItem(p._id)}
-                    >                    
-                      </i>
-                  </div>
-                  
-                  
-                  
+                    src={`/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                    width="100%"
+                    height={"130px"}
+                  />
+                  <span className="cart-name des">{p.name}</span>
+                  <span className="cart-des des">{p.description.substring(0, 30)}</span>
+                  <span className="cart-price des">$ {p.price}</span>
+                  {/* Icon to delete the item from the cart */}
+                  <i
+                    className="fa-solid fa-trash delete-icon"
+                    onClick={() => removeCartItem(p._id)}
+                  ></i>
                 </div>
-              ))}
-            </div>
-            <div className="cart-summary ">
-              <h2>Cart Summary</h2>
-              <p>Total | Checkout | Payment</p>
-              <hr />
-              <h4>Total : {totalPrice()} </h4>
-              {auth?.user?.address ? (
-                <>
-                  <div className="mb-3">
-                    <h4>Current Address</h4>
-                    <h5>{auth?.user?.address}</h5>
-                    <button
-                      className="btn btn-outline-warning"
-                      onClick={() => navigate("/dashboard/user/profile")}
-                    >
-                      Update Address
-                    </button>
-                  </div>
-                </>
-              ) : (
+              </div>
+            ))}
+          </div>
+          <div className="cart-summary">
+            <h2>Cart Summary</h2>
+            <p>Total | Checkout | Payment</p>
+            <hr />
+            <h4>Total : {totalPrice()} </h4>
+            {/* Displaying the user's address if available, otherwise prompting them to update it */}
+            {auth?.user?.address ? (
+              <>
                 <div className="mb-3">
-                  {auth?.token ? (
-                    <button
-                      className="btn btn-outline-warning"
-                      onClick={() => navigate("/dashboard/user/profile")}
-                    >
-                      Update Address
-                    </button>
-                  ) : (
-                    <button
-                      className="btn btn-outline-warning"
-                      onClick={() =>
-                        navigate("/login", {
-                          state: "/cart",
-                        })
-                      }
-                    >
-                      Plase Login to checkout
-                    </button>
-                  )}
+                  <h4>Current Address</h4>
+                  <h5>{auth?.user?.address}</h5>
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() => navigate("/dashboard/user/profile")}
+                  >
+                    Update Address
+                  </button>
                 </div>
-              )}
-              <div className="mt-2">
-                {!clientToken || !auth?.token || !cart?.length ? (
-                  ""
+              </>
+            ) : (
+              <div className="mb-3">
+                {/* Prompting the user to log in if they want to checkout */}
+                {auth?.token ? (
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() => navigate("/dashboard/user/profile")}
+                  >
+                    Update Address
+                  </button>
                 ) : (
-                  <>
-                    <DropIn
-                      options={{
-                        authorization: clientToken,
-                        paypal: {
-                          flow: "vault",
-                        },
-                      }}
-                      onInstance={(instance) => setInstance(instance)}
-                    />
-
-                    <button
-                      className="btn btn-primary"
-                      onClick={handlePayment}
-                      disabled={loading || !instance || !auth?.user?.address}
-                    >
-                      {loading ? "Processing ...." : "Make Payment"}
-                    </button>
-                  </>
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() =>
+                      navigate("/login", {
+                        state: "/cart",
+                      })
+                    }
+                  >
+                    Please Login to checkout
+                  </button>
                 )}
               </div>
+            )}
+            <div className="mt-2">
+              {/* Displaying the payment gateway if all conditions are met */}
+              {!clientToken || !auth?.token || !cart?.length ? (
+                ""
+              ) : (
+                <>
+                  <DropIn
+                    options={{
+                      authorization: clientToken,
+                      paypal: {
+                        flow: "vault",
+                      },
+                    }}
+                    onInstance={(instance) => setInstance(instance)}
+                  />
+
+                  <button
+                    className="btn btn-primary"
+                    onClick={handlePayment}
+                    disabled={loading || !instance || !auth?.user?.address}
+                  >
+                    {loading ? "Processing ...." : "Make Payment"}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
+      </div>
     </Layout>
   );
 };

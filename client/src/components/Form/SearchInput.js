@@ -10,7 +10,7 @@ const SearchInput = () => {
   
   const navigate = useNavigate();
 
-  // Function to handle the form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
@@ -20,7 +20,6 @@ const SearchInput = () => {
         `/api/v1/product/search/${values.keyword}`
       );
 
-      // Update the 'results' property in the state with the received data from the server
       setValues({ ...values, results: data });
 
       navigate("/search");

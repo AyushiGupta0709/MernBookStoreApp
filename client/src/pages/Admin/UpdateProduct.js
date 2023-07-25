@@ -11,6 +11,8 @@ const { Option } = Select;
 const UpdateProduct = () => {
   const navigate = useNavigate();
   const params = useParams();
+
+  // State variables to store product information
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -21,7 +23,7 @@ const UpdateProduct = () => {
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
 
-  //get single product
+  // Function to fetch the details of a single product
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -39,11 +41,13 @@ const UpdateProduct = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getSingleProduct();
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
-  //get all category
+
+  // Function to fetch all categories from the server
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");
@@ -52,7 +56,7 @@ const UpdateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      toast.error("Something went wrong in getting categories");
     }
   };
 
@@ -60,7 +64,7 @@ const UpdateProduct = () => {
     getAllCategory();
   }, []);
 
-  //create product function
+  // Function to update the product
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -83,25 +87,26 @@ const UpdateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
-  //delete a product
+  // Function to delete the product
   const handleDelete = async () => {
     try {
-      let answer = window.prompt("Are You Sure want to delete this product ? ");
+      let answer = window.prompt("Are you sure you want to delete this product?");
       if (!answer) return;
       const { data } = await axios.delete(
         `/api/v1/product/delete-product/${id}`
       );
-      toast.success("Product DEleted Succfully");
+      toast.success("Product Deleted Successfully");
       navigate("/dashboard/admin/products");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
     }
   };
+
   return (
     <Layout title={"Dashboard - Create Product"}>
       <div className="update-product-container">
@@ -112,6 +117,7 @@ const UpdateProduct = () => {
           <div className="col-md-8 update-product-main-container">
             <h1>Update Product</h1>
             <div className="update-form-container">
+              {/* Select input for category */}
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -129,6 +135,8 @@ const UpdateProduct = () => {
                   </Option>
                 ))}
               </Select>
+
+              {/* Input for uploading product photo */}
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
                   {photo ? photo.name : "Upload Photo"}
@@ -141,6 +149,8 @@ const UpdateProduct = () => {
                   />
                 </label>
               </div>
+
+              {/* Display product photo */}
               <div className="mb-3">
                 {photo ? (
                   <div className="text-center">
@@ -162,6 +172,8 @@ const UpdateProduct = () => {
                   </div>
                 )}
               </div>
+
+              {/* Input for product name */}
               <div className="mb-3">
                 <input
                   type="text"
@@ -171,6 +183,8 @@ const UpdateProduct = () => {
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
+
+              {/* Input for product description */}
               <div className="mb-3">
                 <textarea
                   type="text"
@@ -181,6 +195,7 @@ const UpdateProduct = () => {
                 />
               </div>
 
+              {/* Input for product price */}
               <div className="mb-3">
                 <input
                   type="number"
@@ -190,6 +205,8 @@ const UpdateProduct = () => {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
+
+              {/* Input for product quantity */}
               <div className="mb-3">
                 <input
                   type="number"
@@ -199,6 +216,8 @@ const UpdateProduct = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
+
+              {/* Select input for product shipping */}
               <div className="mb-3">
                 <Select
                   bordered={false}
@@ -215,11 +234,15 @@ const UpdateProduct = () => {
                   <Option value="1">Yes</Option>
                 </Select>
               </div>
+
+              {/* Button to update the product */}
               <div className="mb-3">
                 <button className="update-button" onClick={handleUpdate}>
                   UPDATE PRODUCT
                 </button>
               </div>
+
+              {/* Button to delete the product */}
               <div className="mb-3">
                 <button className="del-button" onClick={handleDelete}>
                   DELETE PRODUCT

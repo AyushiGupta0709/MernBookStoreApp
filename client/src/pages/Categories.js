@@ -8,7 +8,6 @@ const Categories = () => {
   return (
     <Layout title={"All Categories"}>
       <div className="main-category-container">
-        {/* <div className="single-row"> */}
           {categories.map((c) => (
             <div className="" key={c._id}>
               <div className="card single-category">
@@ -19,7 +18,6 @@ const Categories = () => {
             </div>
           ))}
         </div>
-      {/* </div> */}
     </Layout>
   );
 };

@@ -10,6 +10,8 @@ const { Option } = Select;
 
 const CreateProduct = () => {
   const navigate = useNavigate();
+
+  // State variables to store form input values
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -19,7 +21,7 @@ const CreateProduct = () => {
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
 
-  //get all category
+  // Function to get all categories from the server
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");
@@ -28,7 +30,7 @@ const CreateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      toast.error("Something went wrong in getting categories");
     }
   };
 
@@ -36,7 +38,7 @@ const CreateProduct = () => {
     getAllCategory();
   }, []);
 
-  //create product function
+  // Function to handle the creation of a new product
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
@@ -47,6 +49,7 @@ const CreateProduct = () => {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
+
       const { data } = axios.post(
         "/api/v1/product/create-product",
         productData
@@ -59,7 +62,7 @@ const CreateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
@@ -73,6 +76,7 @@ const CreateProduct = () => {
           <div className="col-md-9 create-right-container">
             <h1 className="create-heading">Create Product</h1>
             <div className="w-75 form-contain">
+              {/* Dropdown to select a category */}
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -89,6 +93,8 @@ const CreateProduct = () => {
                   </Option>
                 ))}
               </Select>
+
+              {/* Input for uploading a product photo */}
               <div className="mb-3 inputs">
                 <label className="btn btn-outline-secondary col-md-12">
                   {photo ? photo.name : "Upload Photo"}
@@ -101,6 +107,8 @@ const CreateProduct = () => {
                   />
                 </label>
               </div>
+
+              {/* Display the selected product photo */}
               <div className="mb-3 inputs">
                 {photo && (
                   <div className="text-center">
@@ -113,6 +121,8 @@ const CreateProduct = () => {
                   </div>
                 )}
               </div>
+
+              {/* Input for product name */}
               <div className="mb-3 inputs">
                 <input
                   type="text"
@@ -122,6 +132,8 @@ const CreateProduct = () => {
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
+
+              {/* Textarea for product description */}
               <div className="mb-3 inputs">
                 <textarea
                   type="text"
@@ -132,6 +144,7 @@ const CreateProduct = () => {
                 />
               </div>
 
+              {/* Input for product price */}
               <div className="mb-3 inputs">
                 <input
                   type="number"
@@ -141,6 +154,8 @@ const CreateProduct = () => {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
+
+              {/* Input for product quantity */}
               <div className="mb-3 inputs">
                 <input
                   type="number"
@@ -150,6 +165,8 @@ const CreateProduct = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
+
+              {/* Dropdown to select shipping option */}
               <div className="mb-3 inputs">
                 <Select
                   bordered={false}
@@ -165,6 +182,8 @@ const CreateProduct = () => {
                   <Option value="1">Yes</Option>
                 </Select>
               </div>
+
+              {/* Button to create the product */}
               <div className="mb-3">
                 <button className="create-product-button" onClick={handleCreate}>
                   CREATE PRODUCT

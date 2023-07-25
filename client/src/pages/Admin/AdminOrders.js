@@ -9,16 +9,19 @@ import { Select } from "antd";
 const { Option } = Select;
 
 const AdminOrders = () => {
+  // State variables
   const [status, setStatus] = useState([
     "Not Process",
     "Processing",
     "Shipped",
-    "deliverd",
+    "delivered",
     "cancel",
   ]);
-  const [changeStatus, setCHangeStatus] = useState("");
+  const [changeStatus, setChangeStatus] = useState("");
   const [orders, setOrders] = useState([]);
   const [auth, setAuth] = useAuth();
+
+  // Function to get all orders from the server
   const getOrders = async () => {
     try {
       const { data } = await axios.get("/api/v1/auth/all-orders");
@@ -29,19 +32,24 @@ const AdminOrders = () => {
   };
 
   useEffect(() => {
-    if (auth?.token) getOrders();
+    if (auth?.token) getOrders(); 
   }, [auth?.token]);
 
+  // Function to handle changing the status of an order
   const handleChange = async (orderId, value) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/order-status/${orderId}`, {
-        status: value,
-      });
+      const { data } = await axios.put(
+        `/api/v1/auth/order-status/${orderId}`,
+        {
+          status: value,
+        }
+      );
       getOrders();
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <Layout title={"All Orders Data"}>
       <div className="row dashboard">
@@ -52,14 +60,14 @@ const AdminOrders = () => {
           <h1 className="text-center">All Orders</h1>
           {orders?.map((o, i) => {
             return (
-              <div className="border shadow">
+              <div className="border shadow" key={o._id}>
                 <table className="table">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Status</th>
                       <th scope="col">Buyer</th>
-                      <th scope="col"> date</th>
+                      <th scope="col">Date</th>
                       <th scope="col">Payment</th>
                       <th scope="col">Quantity</th>
                     </tr>
@@ -68,6 +76,7 @@ const AdminOrders = () => {
                     <tr>
                       <td>{i + 1}</td>
                       <td>
+                        {/* Dropdown menu to select order status */}
                         <Select
                           bordered={false}
                           onChange={(value) => handleChange(o._id, value)}
@@ -88,6 +97,7 @@ const AdminOrders = () => {
                   </tbody>
                 </table>
                 <div className="container">
+                  {/* Display the products in the order */}
                   {o?.products?.map((p, i) => (
                     <div className="row mb-2 p-3 card flex-row" key={p._id}>
                       <div className="col-md-4">
