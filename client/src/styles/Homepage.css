@@ -1,9 +1,6 @@
 .home-page{
   margin-top: 50px;
-  /* border: 2px solid red; */
 }
-
-
 .home-container{
   margin-top: 50px;
   display: flex;
@@ -36,9 +33,6 @@
   height: 180px;
   width: 100%;
   background-color: rgb(241, 240, 240);
-}
-.home-more-details-button{
-
 }
 .home-button{
   padding: 7px 10px;

@@ -55,9 +55,10 @@ const CreateProduct = () => {
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
-      } else {
         toast.success("Product Created Successfully");
+        
+      } else {
+        toast.error(data?.message);
         navigate("/dashboard/admin/products");
       }
     } catch (error) {
@@ -96,7 +97,7 @@ const CreateProduct = () => {
 
               {/* Input for uploading a product photo */}
               <div className="mb-3 inputs">
-                <label className="btn btn-outline-secondary col-md-12">
+                <label className="btn home-button col-md-12">
                   {photo ? photo.name : "Upload Photo"}
                   <input
                     type="file"
@@ -167,7 +168,7 @@ const CreateProduct = () => {
               </div>
 
               {/* Dropdown to select shipping option */}
-              <div className="mb-3 inputs">
+              {/* <div className="mb-3 inputs">
                 <Select
                   bordered={false}
                   placeholder="Select Shipping "
@@ -181,7 +182,7 @@ const CreateProduct = () => {
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>
                 </Select>
-              </div>
+              </div> */}
 
               {/* Button to create the product */}
               <div className="mb-3">

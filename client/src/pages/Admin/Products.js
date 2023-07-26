@@ -19,8 +19,7 @@ const Products = () => {
       toast.error("Something Went Wrong");
     }
   };
-
-  // Lifecycle method to fetch products when the component mounts
+  
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -48,7 +47,7 @@ const Products = () => {
                     alt={p.name}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{p.name}</h5>
+                    <h5 className="card-title">{p.name.toUpperCase()}</h5>
                     <p className="card-text"><span className="des">Description:</span>{p.description}</p>
                   </div>
                 </div>

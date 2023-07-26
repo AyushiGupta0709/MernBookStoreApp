@@ -10,7 +10,7 @@ const Readmore = () => {
           <h4>What we are...</h4>
           <h2>THE BOOK SPOT</h2>
           <span>
-            the Book Spot is a unit of Gobind Bhawan Karyalaya registered under
+            The Book Spot is a unit of Gobind Bhawan Karyalaya registered under
             the Societies Registration Act, 1860 (presently governed by the West
             Bengal Societies Act, 1960). The institution’s main objective is to
             promote and spread the principles of Sanatana Dharma, the Hindu
@@ -58,5 +58,4 @@ const Readmore = () => {
     </>
   );
 };
-
 export default Readmore;

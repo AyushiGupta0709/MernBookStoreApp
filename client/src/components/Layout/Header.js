@@ -83,13 +83,13 @@ const Header = () => {
               {!auth?.user ? (
                 <>
                   {/* Register button */}
-                  <li className="nav-item links">
+                  {/* <li className="nav-item links">
                     <button className="reg-button">
                       <NavLink to="/register" className="nav-link">
                         Register
                       </NavLink>
                     </button>
-                  </li>
+                  </li> */}
                   {/* Login button */}
                   <li className="nav-item links">
                     <button className="log-button">

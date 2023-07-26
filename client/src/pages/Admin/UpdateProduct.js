@@ -94,8 +94,6 @@ const UpdateProduct = () => {
   // Function to delete the product
   const handleDelete = async () => {
     try {
-      let answer = window.prompt("Are you sure you want to delete this product?");
-      if (!answer) return;
       const { data } = await axios.delete(
         `/api/v1/product/delete-product/${id}`
       );
@@ -117,7 +115,6 @@ const UpdateProduct = () => {
           <div className="col-md-8 update-product-main-container">
             <h1>Update Product</h1>
             <div className="update-form-container">
-              {/* Select input for category */}
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -138,7 +135,7 @@ const UpdateProduct = () => {
 
               {/* Input for uploading product photo */}
               <div className="mb-3">
-                <label className="btn btn-outline-secondary col-md-12">
+                <label className="btn home-button col-md-12">
                   {photo ? photo.name : "Upload Photo"}
                   <input
                     type="file"
@@ -149,8 +146,6 @@ const UpdateProduct = () => {
                   />
                 </label>
               </div>
-
-              {/* Display product photo */}
               <div className="mb-3">
                 {photo ? (
                   <div className="text-center">
@@ -234,15 +229,11 @@ const UpdateProduct = () => {
                   <Option value="1">Yes</Option>
                 </Select>
               </div>
-
-              {/* Button to update the product */}
               <div className="mb-3">
                 <button className="update-button" onClick={handleUpdate}>
                   UPDATE PRODUCT
                 </button>
               </div>
-
-              {/* Button to delete the product */}
               <div className="mb-3">
                 <button className="del-button" onClick={handleDelete}>
                   DELETE PRODUCT
