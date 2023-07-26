@@ -69,6 +69,22 @@
   background-color:#a90d1d;
 
 }
+:where(.css-dev-only-do-not-override-ixblex).ant-checkbox-wrapper {
+  height: 22px;
+  width: 219px;
+  box-sizing: border-box;
+  margin: 0;
+  margin-left: 8px;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.5714285714285714;
+  list-style: none;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  display: inline-flex;
+  align-items: baseline;
+  cursor: pointer;
+}
 @media only screen and (max-width: 750px){
   .footer{
     height: 444px;
