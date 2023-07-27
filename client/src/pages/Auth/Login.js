@@ -92,7 +92,7 @@ const Login = () => {
   };
 
   return (
-    <Layout title="Register - Ecommer App">
+    <Layout title="Register -THE BOOK SPOT">
       <div className="login-main-container">
         <div className="left-container">
           <img src={registerPhoto} alt="" />

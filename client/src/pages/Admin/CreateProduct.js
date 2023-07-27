@@ -168,21 +168,6 @@ const CreateProduct = () => {
               </div>
 
               {/* Dropdown to select shipping option */}
-              {/* <div className="mb-3 inputs">
-                <Select
-                  bordered={false}
-                  placeholder="Select Shipping "
-                  size="large"
-                  showSearch
-                  className="form-select mb-3"
-                  onChange={(value) => {
-                    setShipping(value);
-                  }}
-                >
-                  <Option value="0">No</Option>
-                  <Option value="1">Yes</Option>
-                </Select>
-              </div> */}
 
               {/* Button to create the product */}
               <div className="mb-3">

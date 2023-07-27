@@ -16,13 +16,12 @@
   width: 100%;
   background-color: black;
   color: white;
+  height: 100px;
 }
-.cart-all-details{
-  
-}
+
 .cart-details-container{
   min-height: 80vh;
-  padding: 70px;
+  padding: 20px;
   display: flex;
   justify-content: space-around;
   text-align: center;
@@ -40,13 +39,15 @@
   justify-content: space-around;
 } 
 .cart-order-des img{
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
 
 }
 .cart-all-details{
-  width: 60%;
+  width: 100%;
   margin-right: 50px;
+ 
+  /* border: 2px solid red; */
 }
 .cart-summary{
   width: 30%;
@@ -68,6 +69,15 @@
 }
 .delete-icon:hover{
   color: rgb(131, 14, 14);
+}
+table{
+  overflow:scroll;
+}
+th,td{
+  padding: 20px 30px;
+}
+tr{
+  border-bottom: 1px solid rgb(132, 131, 131);
 }
 @media only screen and (max-width:991px){
   .cart-page{

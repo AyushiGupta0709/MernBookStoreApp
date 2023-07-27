@@ -82,14 +82,7 @@ const Header = () => {
               {/* Render either Register/Login or User information/Logout */}
               {!auth?.user ? (
                 <>
-                  {/* Register button */}
-                  {/* <li className="nav-item links">
-                    <button className="reg-button">
-                      <NavLink to="/register" className="nav-link">
-                        Register
-                      </NavLink>
-                    </button>
-                  </li> */}
+                
                   {/* Login button */}
                   <li className="nav-item links">
                     <button className="log-button">

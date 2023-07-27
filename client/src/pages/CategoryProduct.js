@@ -38,7 +38,7 @@ const CategoryProduct = () => {
                     alt={p.name}
                   />
                     <div className="home-product-description">
-                      <h5 className="card-title">{p.name}</h5>
+                      <h5 className="card-title">{p.name.toUpperCase()}</h5>
                       <p className="card-title card-price">
                       <span className="price">Price:</span>{p.price.toLocaleString("en-US", {
                           style: "currency",

@@ -5,7 +5,6 @@ import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
-import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "../styles/CartStyles.css";
@@ -93,7 +92,7 @@ const CartPage = () => {
         <div className="row">
           <div className="cart-main-container">
             {/* Displaying a greeting message based on the user's authentication state */}
-            <h1 className="">
+            <h3 className="">
               {!auth?.user
                 ? "Hello Guest"
                 : `Hello  ${auth?.token && auth?.user?.name}`}
@@ -104,34 +103,52 @@ const CartPage = () => {
                     }`
                   : " Your Cart Is Empty"}
               </p>
-            </h1>
+            </h3>
           </div>
         </div>
         <div className="cart-details-container">
-          <div className="cart-all-details">
-            {/* Mapping through the cart items and displaying them */}
-            {cart?.map((p) => (
-              <div className="cart-single-order" key={p._id}>
-                <div className="cart-order-des">
-                  <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                    width="100%"
-                    height={"130px"}
-                  />
-                  <span className="cart-name des">{p.name}</span>
-                  <span className="cart-des des">{p.description.substring(0, 30)}</span>
-                  <span className="cart-price des">$ {p.price}</span>
-                  {/* Icon to delete the item from the cart */}
-                  <i
-                    className="fa-solid fa-trash delete-icon"
-                    onClick={() => removeCartItem(p._id)}
-                  ></i>
-                </div>
-              </div>
-            ))}
+          <div className="cart-details-container">
+            <table className="cart-all-details">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Mapping through the cart items and displaying them */}
+                {cart?.map((p) => (
+                  <tr key={p._id}>
+                    <td>
+                      <img
+                        src={`/api/v1/product/product-photo/${p._id}`}
+                        className="card-img-top"
+                        alt={p.name}
+                        width="100%"
+                        height={"130px"}
+                      />
+                    </td>
+                    <td className="cart-name des">{p.name.toUpperCase()}</td>
+                    <td className="cart-name des">
+                      {p.description.substring(0, 30)}
+                    </td>
+                    <td className="cart-name des">$ {p.price}</td>
+                    <td>
+                      {/* Icon to delete the item from the cart */}
+                      <i
+                        className="fa-solid fa-trash delete-icon"
+                        onClick={() => removeCartItem(p._id)}
+                      ></i>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
           <div className="cart-summary">
             <h2>Cart Summary</h2>
             <p>Total | Checkout | Payment</p>
@@ -175,32 +192,6 @@ const CartPage = () => {
                 )}
               </div>
             )}
-            <div className="mt-2">
-              {/* Displaying the payment gateway if all conditions are met */}
-              {!clientToken || !auth?.token || !cart?.length ? (
-                ""
-              ) : (
-                <>
-                  <DropIn
-                    options={{
-                      authorization: clientToken,
-                      paypal: {
-                        flow: "vault",
-                      },
-                    }}
-                    onInstance={(instance) => setInstance(instance)}
-                  />
-
-                  <button
-                    className="btn btn-primary"
-                    onClick={handlePayment}
-                    disabled={loading || !instance || !auth?.user?.address}
-                  >
-                    {loading ? "Processing ...." : "Make Payment"}
-                  </button>
-                </>
-              )}
-            </div>
           </div>
         </div>
       </div>
