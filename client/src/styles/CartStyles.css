@@ -27,10 +27,6 @@
   text-align: center;
   flex-direction: row;
 }
-.cart-order-image{
-
-
-}
 .cart-order-des{
   display: flex;
   align-items: center;
@@ -46,8 +42,6 @@
 .cart-all-details{
   width: 100%;
   margin-right: 50px;
- 
-  /* border: 2px solid red; */
 }
 .cart-summary{
   width: 30%;

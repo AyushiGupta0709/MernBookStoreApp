@@ -54,7 +54,6 @@ body {
 }
 @media only screen and (max-width:260px){
     .col-md-9{
-        /* overflow-x: hidden; */
         margin-left: 10px;
     }
 }

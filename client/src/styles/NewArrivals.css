@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 .new-sections{
-
-    /* margin: 0px 0px; */
-    /* margin-top: 250px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +54,6 @@
 }
 .single-new-arrival:hover{
     transition: box-shadow ease-in 0.7s;
-    /* border: 1px solid #eee; */
     box-shadow: 5px 5px 5px  grey;
 }
 .single-image-container img{

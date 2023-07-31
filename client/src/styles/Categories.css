@@ -1,23 +1,20 @@
 .main-category-container{
    display: flex; 
    justify-content: center;
-   /* align-items: center; */
-   /* text-align: center; */
    flex-direction: row;
    margin-top: 100px;
-   /* border: 2px solid red; */
    min-height: 80vh;
    padding: 40px;
 
 }
-.main-category-container:hover{
-    
-}
 .single-category{
     padding: 10px 20px;
     margin: 20px;
-    background-color: rgb(254, 124, 77);;
+    background-color:#dc3545;
    
+}
+.single-category:hover{
+    background-color:#a90d1d;
 }
 .categories-button{
     color: white !important;
