@@ -91,6 +91,14 @@ const Header = () => {
                       </NavLink>
                     </button>
                   </li>
+                    {/* Cart link with badge to show cart item count */}
+              <li className="nav-item">
+                <NavLink to="/cart" className="nav-link">
+                  <Badge count={cart?.length} showZero offset={[10, -5]}>
+                    Cart
+                  </Badge>
+                </NavLink>
+              </li>
                 </>
               ) : (
                 <>
@@ -129,14 +137,7 @@ const Header = () => {
                       </li>
                     </ul>
                   </li>
-                   {/* Cart link with badge to show cart item count */}
-              <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  <Badge count={cart?.length} showZero offset={[10, -5]}>
-                    Cart
-                  </Badge>
-                </NavLink>
-              </li>
+                 
                 </>
               )}
 
