@@ -1,19 +1,21 @@
-.user-menu{
-    background-color: grey;
-    height:90vh;
-    width:100%;
-    
+.user-menu {
+  background-color: grey;
+  height: 90vh;
+  width: 100%;
 }
-.user-links{
-    color:white;
-   border-bottom:1px solid rgb(71, 71, 71); 
-   margin:10px;
+
+.user-links {
+  color: white;
+  border-bottom: 1px solid rgb(71, 71, 71);
+  margin: 10px;
 }
-.user-links:hover{
-    color:black;
+
+.user-links:hover {
+  color: black;
 }
-@media only screen and (max-width:550px){
-    .user-menu{
-        height: 20vh;
-    }
-}
+
+@media only screen and (max-width: 550px) {
+  .user-menu {
+    height: 20vh;
+  }
+}/*# sourceMappingURL=UserMenu.css.map */

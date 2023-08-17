@@ -1,59 +1,50 @@
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
+}
+body .create-product-container {
+  margin-top: 105px;
+  overflow-x: hidden;
+}
+body .create-product-container .create-category-right-container {
+  margin-top: 20px;
+}
+body .create-product-container .create-category-right-container .search-button {
+  margin: 10px;
+  background-color: #fd4558;
+  color: white;
+  padding: 9px 35px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bolder;
+}
+body .create-product-container .create-category-right-container .edit-button {
+  margin-right: 30px;
+}
+body .create-product-container .create-category-right-container .delete-button {
+  background-color: white;
+}
+@media only screen and (max-width: 991px) {
+  body .create-product-container .create-category-right-container .create-product-container {
+    margin-top: 57px;
   }
-
-.create-product-container{
-    margin-top: 105px;
-    overflow-x: hidden;
-
 }
-.create-category-right-container{
-    margin-top: 20px;
- 
-
+@media only screen and (max-width: 768px) {
+  body .create-product-container .create-category-right-container .col-md-3 {
+    width: 30%;
+  }
+  body .create-product-container .create-category-right-container .col-md-9 {
+    width: 70%;
+  }
 }
-.search-button{
-    margin: 10px;
-    background-color:#fd4558;
-    color: white;
-    padding: 9px 35px;
-    border-radius: 25px;
-    border: none;
-    font-weight: bolder;
+@media only screen and (max-width: 550px) {
+  body .create-product-container .create-category-right-container .col-md-3,
+  body .create-product-container .create-category-right-container .col-md-9 {
+    width: 100%;
+    margin-left: 30px;
+  }
 }
-.edit-button{
-    margin-right: 30px;
-
-}
-.delete-button{
-    background-color: white;
-}
-
-@media only screen and (max-width:991px){
-    .create-product-container{
-        margin-top: 57px;
-    
-    }
-}
-@media only screen and (max-width:768px){
-    .col-md-3{
-     width: 30%;
-    }
-    .col-md-9{
-        width: 70%;
-    }
- }
- @media only screen and (max-width:550px){
-    .col-md-3{
-       width: 100%;
-    }
-    .col-md-9{
-        width: 100%;
-        margin-left: 30px;
-    }
-}
-@media only screen and (max-width:260px){
-    .col-md-9{
-        margin-left: 10px;
-    }
-}
+@media only screen and (max-width: 260px) {
+  body .create-product-container .create-category-right-container .col-md-9 {
+    margin-left: 10px;
+  }
+}/*# sourceMappingURL=CreateCategory.css.map */

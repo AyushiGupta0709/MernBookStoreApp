@@ -1,65 +1,47 @@
 body {
+  overflow-x: hidden;
+}
+body .create-container {
+  margin-top: 105px;
+}
+body .create-container .create-right-container {
+  width: 70%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body .create-container .create-right-container .form-contain {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgb(216, 216, 216);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+body .create-container .create-right-container .form-contain .inputs {
+  width: 100%;
+  border-radius: 15px;
+}
+body .create-container .create-right-container .create-product-button {
+  border-radius: 5px;
+  color: white;
+  background-color: #dc3545;
+  padding: 7px 25px;
+  border: none;
+}
+body .create-container .create-right-container .create-product-button:hover {
+  background-color: #a90d1d;
+}
+@media only screen and (max-width: 991px) {
+  body .create-container {
     overflow-x: hidden;
+    margin-top: 57px;
   }
-
-.create-container{
-    margin-top: 105px;
-}
-.create-right-container{
-    width: 70%;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-
-
-}
-.form-contain{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 1px solid rgb(216, 216, 216);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-}
-.inputs{
-    width: 100%;
-    border-radius: 15px;
-}
-.create-product-button{
-    border-radius: 5px;
-    color: white;
-    background-color:#dc3545;
-    padding: 7px 25px;
-   border: none;
-}
-.create-product-button:hover{
-    background-color:#a90d1d;
-}
-
-@media only screen and (max-width:991px){
-    .create-container{
-        overflow-x: hidden;
-        margin-top: 57px;
-    
-    }
-}
-@media only screen and (max-width:768px){
-   .col-md-3{
-    width: 30%;
-   }
-}
-@media only screen and (max-width:550px){
-    .col-md-3{
-       width: 100%;
-    }
-    .create-right-container{
-        width: 100%;
-    }
-}
-
+}/*# sourceMappingURL=CreateProduct.css.map */
