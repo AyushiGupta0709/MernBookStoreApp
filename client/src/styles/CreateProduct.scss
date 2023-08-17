@@ -1,0 +1,53 @@
+body {
+    overflow-x: hidden;
+  
+    .create-container {
+      margin-top: 105px;
+  
+      .create-right-container {
+        width: 70%;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+  
+        .form-contain {
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          flex-direction: column;
+          border: 1px solid rgb(216, 216, 216);
+          padding: 20px;
+          margin: 20px;
+          border-radius: 10px;
+          width: 100%;
+  
+          .inputs {
+            width: 100%;
+            border-radius: 15px;
+          }
+        }
+  
+        .create-product-button {
+          border-radius: 5px;
+          color: white;
+          background-color: #dc3545;
+          padding: 7px 25px;
+          border: none;
+  
+          &:hover {
+            background-color: #a90d1d;
+          }
+        }
+      }
+  
+      @media only screen and (max-width: 991px) {
+        overflow-x: hidden;
+        margin-top: 57px;
+      }
+    }
+  }
+  
